@@ -1,0 +1,317 @@
+.ios {
+  width: 100%;
+  height: 0.56rem;
+  position: fixed;
+  z-index: 8;
+  bottom: 0;
+  background-color: #fff;
+}
+.line-bottom {
+  border-bottom: 1px solid #cccccc;
+}
+.display_show {
+  display: block;
+}
+.dispaly_none {
+  display: none !important;
+}
+.screen-transverse-padding-20 {
+  padding-right: 0.4rem !important;
+}
+.display-box {
+  position: fixed;
+  width: 0.96rem;
+  height: 0.96rem;
+  bottom: 1rem;
+  right: 0.38rem;
+  z-index: 0;
+  i {
+    width: 0.96rem;
+    height: 0.96rem;
+    display: inline-block;
+    background: url('../../../assets/images/screenSwitch.png') no-repeat;
+    background-size: cover;
+  }
+}
+.display-box-android {
+  position: fixed;
+  width: 1.04rem;
+  height: 1.04rem;
+  bottom: 1.6rem;
+  right: 0.22rem;
+  z-index: 0;
+  i {
+    width: 1.04rem;
+    height: 1.04rem;
+    display: inline-block;
+    background: url('../../../assets/images/screenSwitch_android.png') no-repeat;
+    background-size: cover;
+  }
+}
+header {
+  position: fixed;
+  top: 0.62rem;
+  z-index: 2003;
+  background-color: #fff;
+  overflow: scroll;
+  width: 100%;
+  .head-title {
+    position: relative;
+    padding-top: 0.16rem;
+    div {
+      display: flex;
+      align-items: center;
+    }
+    .top-title {
+      padding: 0 0.3rem 0 0.32rem;
+      .left {
+        display: flex;
+        div {
+          display: inline-block;
+          font-size: 0.28rem;
+          font-family: PingFangSC, PingFangSC-Medium;
+          font-weight: 500;
+          text-align: left;
+          color: #333333;
+          line-height: 0.36rem;
+        }
+        div:first-child {
+          width: 44px;
+        }
+        div:last-child {
+          box-sizing: border-box;
+          width: 100px;
+          position: relative;
+          img {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            right: 0rem;
+            top: 0.1rem;
+          }
+        }
+      }
+      .right {
+        //padding-right: 0.24rem;
+        display: flex;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        img {
+          right: 0.1rem;
+          position: absolute;
+          width: 8px;
+          height: 8px;
+        }
+        .head-right-colunm {
+          .after-sort::after {
+            content: "";
+            display: inline-block;
+            border: 0.1rem solid;
+            border-color: #1482f0 transparent transparent;
+            vertical-align: sub;
+          }
+          .after-sort.trans_rotate::after {
+            vertical-align: top;
+            transform: rotate(180deg);
+          }
+          div {
+            box-sizing: border-box;
+            position: relative;
+            display: inline-block;
+            flex-shrink: 0;
+            font-size: 0.28rem;
+            font-family: PingFangSC, PingFangSC-Medium;
+            font-weight: 500;
+            line-height: 0.36rem;
+            color: #333;
+            text-align: right;
+            padding-left: 0.14rem;
+            i {
+              top: 50%;
+              transform: translateY(-50%);
+              right: -0.24rem;
+              display: inline-block;
+              position: absolute;
+              width: 0.24rem;
+              height: 0.24rem;
+              //background: url('../../assets/order.png') no-repeat;
+              background-size: cover;
+            }
+            .underorder {
+              top: 50%;
+              transform: translateY(-50%);
+              right: -0.24rem;
+              display: inline-block;
+              position: absolute;
+              width: 0.24rem;
+              height: 0.24rem;
+              //background: url('../../assets/asc.png') no-repeat;
+              background-size: cover;
+            }
+            .uporder {
+              top: 50%;
+              transform: translateY(-50%);
+              right: -0.24rem;
+              display: inline-block;
+              position: absolute;
+              width: 0.24rem;
+              height: 0.24rem;
+              //background: url('../../assets/desc.png') no-repeat;
+              background-size: cover;
+            }
+          }
+          div:last-child {
+            width: 2rem;
+            margin-right: 0;
+            span {
+              position: relative;
+              right: 0.2rem;
+            }
+          }
+        }
+      }
+      .right::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .top-value {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 0.24rem;
+      padding: 0 0.3rem 0.16rem 0rem;
+      min-height: 0.34rem;
+      position: relative;
+      font-size: 0.26rem;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        border-bottom: 1px solid #dfdfdf;
+        transform: scaleY(0.5);
+      }
+      .left {
+        align-items: flex-start;
+        div {
+          font-family: PingFangSC-Regular;
+          font-weight: 400;
+          color: #ff7a15;
+        }
+        div:first-child {
+          display: inline-block;
+          box-sizing: border-box;
+          width: 60px;
+          text-align: center;
+        }
+        div:last-child{
+          box-sizing: border-box;
+          width: 100px;
+          padding-left: 6px;
+        }
+      }
+      .right {
+        display: flex;
+        overflow-x: scroll;
+        >div {
+          white-space: nowrap;
+          font-family: ArialMT;
+          font-weight: 400;
+          font-size: 0.26rem;
+          line-height: 0.34rem;
+          color: #ff7a15;
+          text-align: right;
+          >span {
+            display: inline-block;
+            width: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+div::-webkit-scrollbar {
+  display: none;
+}
+.top {
+  position: fixed;
+  width: 100%;
+}
+.content {
+  display: flex;
+  position: relative;
+  padding: 2.2rem 0.3rem 0.6rem 0;
+  .fixed-left {
+    width: 160px;
+    display: flex;
+    box-sizing: border-box;
+    padding-top: 0.16rem;
+    text-align: left;
+    .first-column {
+      width: 60px;
+      div {
+        box-sizing: border-box;
+        font-size: 0.26rem;
+        font-family: PingFangSC, PingFangSC-Regular;
+        font-weight: 400;
+        text-align: center;
+        color: #111111;
+        line-height: 21px;
+        padding: 6px 0;
+      }
+    }
+    .second-column {
+      width: 100px;
+      div {
+        font-size: 0.26rem;
+        font-family: PingFangSC, PingFangSC-Regular;
+        color: #111111;
+        min-height: 21px;
+        line-height: 21px;
+        padding: 6px 0 6px 6px;
+        .zhe_xian_icon {
+          content: '';
+          display: inline-block;
+          width: 0.24rem;
+          height: 0.24rem;
+          background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAAGXcA1uAAAAAXNSR0IArs4c6QAAAxFJREFUSA2tVM1r1FAQf5Nsk62iImiLrdSLIohSLBWKuFkE8aB4qdqTeNGLUCulu/XrLzDbrVZPIgqCilRLRXsoetBNt2UF60FQ8SaKiC0qVaRJmmSclzbhbbrrbrEPdjMfv/lNZuZlWMawCmzhSPRs0XMmcp0rrDcZB/4sPv0T2MgtumGf8j19hnXEF4jN9oXIn082iChzO89AERd8TLmICEEFVTesXwHdhwCbyZnTvhyUlBkzDwVyAAqfGcPuDJWywlJfNyYy8dwAgGlN9Rsi+jI56yc5u/2AqwVcbVrWzPomtXb6k6NReVavpqo8gKr6CsD0lKau5bofoMbYbFdbOKunZFd1w5yi4b1Pa/ENHBiepdeAOFW2byGtIFCjuwS1oiihB80VUQKgqK2CfZGYzdttnufdCwOoz68ZsO2A0r5UssYQIy4bdovj4QR1TAoHhAx3EmiIgXdQBPdPWDvm0JsMhukHUGsLNOE7tarSicjOZPPmAR50JW9udebwjfg9wcJ1eEgMRwNmPhtErOG6COa6RGMfF8HcSOAXK+LqOsr6g+vi4a/0TjRwmVj3z9rWpdaEUh/1hV2KOtKJ+Mmojethl0o5S9n8oks5Stmo3s+Md0TPWTdLAZbDVrbm/yUfKJhbXEdaUzJBZhzrmDN3kQE2SIC3exLxkWoT9o3buzwHn9GqXSUhHl80hIE8NqFjfSNyG2XlnOuxJ7TespUSZMfsZmr3d3TxJd2nNK0cOZVU7xZVcP0Vrpn5Yw/5ZMi6mWOlgIFLV/E0Xfdcz57442gi2vbb6Dt67npeHQOpq1dTrokY8K89Y49oXzXSjd5N2e9vSijHOoATzx/+LbkeDAMxUWWHZQk+ogSK63gjZGlgAGfpjfUALz7nE9B3RW863KopHXsBHBEgyrRtBylJO60JIsMT5PtNK2GziInK/gzovt5IJ9X2f5HzQBlglIqQqdLztCXqKG40ShjVi2YQdUb1noRyi2z8V/VZdIuqjqwSuDADNgkSPqgypmoYoPw2thKUejNmb2Q0ueU/sS9/AbXEUGCENSx7AAAAAElFTkSuQmCC) no-repeat;
+          background-size: contain;
+          margin-left: 0.08rem;
+        }
+      }
+    }
+  }
+  .scroll-right {
+    width: 100%;
+    display: flex;
+    padding-top: 0.16rem;
+
+    overflow-y: hidden;
+    overflow-x: scroll;
+    .columns {
+      flex-shrink: 0;
+      display: inline-block;
+      width: 2rem;
+      font-size: 0.26rem;
+      font-family: ArialMT;
+      text-align: right;
+      color: #111111;
+      line-height: 0.34rem;
+      >div {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0.12rem 0;
+        line-height: 21px;
+      }
+    }
+    .columns:last-child {
+      width: 1.8rem;
+      margin-right: 0;
+    }
+  }
+  .scroll-right::-webkit-scrollbar {
+    display: none;
+  }
+}
+
