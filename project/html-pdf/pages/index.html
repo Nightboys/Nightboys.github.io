@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>城投简报</title>
+  <link rel="stylesheet" href="../css/test.css">
+  <script>
+    window.devicePixelRatio = 3;  //调整打印分辨率
+  </script>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery.raty.min.js"></script>
+</head>
+
+<body>
+  <!-- 内容打印区域 -->
+  <div id="printContent">
+    <!-- 1.html -->
+    <div class="body-container">
+      <div class="content-banner">
+        <span>城投简报</span>
+        <img src="../css/images/banner.png" alt="">
+      </div>
+      <div class="content-body">
+        <div class="content-header flex-row-center">
+          <div class="company-icon flex-row-center flex-justify-center">
+            <!-- <span>天津轨道</span> -->
+            <img src="../css/images/icon.png" alt="">
+          </div>
+          <div class="company-title">
+            <h3 id="cityName">天津轨道交通集团有限公司</h3>
+            <div class="company-title-tag">
+              <span>省级</span><span>直接控股</span><span>重要平台</span><span>中债城投</span>
+            </div>
+
+            <script>
+              function calcCityName() {
+                let cityName = '天津轨道交通集团有限公司天津轨道交通轨道交通';  //公司名称
+                let target = document.getElementById('cityName'),
+                  d = cityName.length;
+
+                let txt = cityName;
+                if (d <= 21) {
+                  target.className = ''; //无
+                } else {
+                  if (d <= 23) {
+                    target.className = 'climp-text2';
+                  } else {
+                    target.className = 'climp-text';
+                    if (d > 51) {
+                      txt = cityName.substr(0, 47) + '...';//超出两行省略号
+                    }
+                  }
+                }
+
+                target.innerHTML = txt;
+              }
+              calcCityName();
+            </script>
+          </div>
+        </div>
+
+        <div class="content-middle">
+          <div class="content-middle-item flex-row-start">
+            <div class="item-tag">
+              <h5>城投评分</h5>
+              <strong>4.51 <span id="starRaty"></span></strong>
+
+              <script>
+                $('#starRaty').raty({
+                  score: 4.51,
+                  readOnly: true,//只读
+                  number: 5, //5颗星 
+                  starHalf: "../css/images/star-half.png",
+                  starOff: "../css/images/star-off.png",
+                  starOn: "../css/images/star-on.png"
+                });
+              </script>
+            </div>
+            <div class="item-tag">
+              <h5>评级</h5>
+              <strong>AAA 中诚信国际</strong>
+            </div>
+            <div class="item-tag">
+              <h5>注册资本</h5>
+              <strong>402.23亿元</strong>
+            </div>
+            <div class="item-tag">
+              <h5>行业</h5>
+              <strong>建筑装饰</strong>
+            </div>
+          </div>
+          <p class="content-middle-intro">公司实控人：<span>天津市人民政府国有资产监督管理委员会。</span></p>
+        </div>
+
+        <div class="content-disclaimer">
+          免责声明： 本城投报告由企业预警通于2021/05/25
+          10:22:12生成，您所看到的报告内容为截止至该时间点该公司的数据快照，我们将尽可能为您保证数据的及时性和准确性，若有疑异，请联系我们。本报告基于合法取得的信息编制而成，仅供使用者参考之用，在任何情况下，使用本报告所引起的一切后果，本公司不承担任何责任。
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
