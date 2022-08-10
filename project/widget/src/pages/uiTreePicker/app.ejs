@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>目录树Tree</title>
+  <link rel="shortcut icon" href="https://app.finchina.com/finchinaAPP/static/logo.png" type="image/x-icon">
+  <link rel="stylesheet"
+    href="https://cdn.finchina.com/app/app_dependent_file/element-ui/2.15.5/lib/theme-chalk/index.css" />
+  <link rel="stylesheet" href="https://cdn.finchina.com/app/app_dependent_file/vant/2.10.6/index.css" />
+  <script src="https://cdn.finchina.com/app/app_dependent_file/vue/2.6.9/vue.min.js"></script>
+  <script src="https://cdn.finchina.com/app/app_dependent_file/vant/2.10.6/vant.min.js"></script>
+  <script src="https://cdn.finchina.com/app/app_dependent_file/element-ui/2.15.5/lib/index.js"></script>
+
+  <% for (const chunk in htmlWebpackPlugin.files.css) { %>
+    <link rel="prefetch" href="<%= htmlWebpackPlugin.files.css[chunk] %>">
+    <% } %>
+      <% for (const chunk in htmlWebpackPlugin.files.chunks) { %>
+        <link rel="prefetch" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>">
+        <% } %>
+</head>
+
+<body style="visibility: hidden">
+  <div id="app"></div>
+</body>
+
+</html>
