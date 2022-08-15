@@ -273,16 +273,27 @@ export default {
 
       //月份变化后判断相应日期的变化
       const month = +value[index - 1];
+      let dayNum = 31;
       if (month === 2) {
-        const dayNum = isLeapYear(+value[index - 2]) ? 29 : 28;
-        picker.setColumnValues(index, _this.dateArr.slice(0, dayNum));
+        dayNum = isLeapYear(+value[index - 2]) ? 29 : 28;
       } else {
         if ([1, 3, 5, 7, 8, 10, 12].includes(month)) {
-          picker.setColumnValues(index, _this.dateArr.slice(0, 31));
+          dayNum = 31;
         } else {
-          picker.setColumnValues(index, _this.dateArr.slice(0, 30));
+          dayNum = 30;
         }
       }
+      picker.setColumnValues(index, _this.dateArr.slice(0, dayNum));
+
+      this.$nextTick(() => {
+        // console.log("val=====", value);
+
+        if (value[index] && value[index] <= dayNum) {
+          this.setColumnValue(index, value[index]);
+        } else {
+          this.$refs.datePicker.setColumnIndex(index, 0);
+        }
+      });
     },
 
     // 设置对应列选中的值
