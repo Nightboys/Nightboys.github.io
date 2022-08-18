@@ -1,0 +1,72 @@
+{
+  "name": "nightboys-ui",
+  "version": "1.0.0",
+  "description": "基于vant和element-ui开发的简单公用组件库",
+  "main": "lib/nightboys-ui.js",
+  "style": "lib/index.css",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "dev": "vant-cli dev",
+    "test": "vant-cli test",
+    "lint": "vant-cli lint",
+    "build": "vant-cli build",
+    "release": "vant-cli release",
+    "test:coverage": "open test/coverage/index.html",
+    "build-site": "vant-cli build-site"
+  },
+  "author": "liuch@nightboys.com",
+  "husky": {
+    "hooks": {
+      "pre-commit": "nano-staged",
+      "commit-msg": "vant-cli commit-lint"
+    }
+  },
+  "nano-staged": {
+    "*.md": "prettier --write",
+    "*.{ts,tsx,js,vue,less,scss}": "prettier --write",
+    "*.{ts,tsx,js,jsx,vue}": "eslint --fix",
+    "*.{vue,css,less,scss}": "stylelint --fix"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "webpack-zepto": "^0.0.1"
+  },
+  "devDependencies": {
+    "@vant/cli": "^2.0.0",
+    "vue": "^2.6.11",
+    "vant": "^2.12.25",
+    "vue-template-compiler": "^2.6.11",
+    "style-loader": "^2.0.0",
+    "url-loader": "^1.1.2",
+    "file-loader": "^3.0.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@vant"
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "@vant/stylelint-config"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "browserslist": [
+    "Android >= 4.0",
+    "iOS >= 8",
+    "Chrome >= 51",
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
