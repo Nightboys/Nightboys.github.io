@@ -1,0 +1,140 @@
+import $ from 'jquery';
+import scrollFix from '../director/scrollFix';
+import dateTimePicker from './plugins/uiDatePicker';
+var ios = /(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent);
+import './datePickerBtn-sfc.css';
+
+var __vue_render__ = function __vue_render__() {
+  var _vm = this;
+
+  var _h = _vm.$createElement;
+
+  var _c = _vm._self._c || _h;
+
+  return _c('div', {
+    staticClass: "date-picker",
+    class: [{
+      'menu-flex-none': !_vm.hasScroll
+    }, _vm.type],
+    on: {
+      "click": function click($event) {
+        $event.stopPropagation();
+      }
+    }
+  }, [_c('div', {
+    staticClass: "picker-area"
+  }, [_c('div', {
+    staticClass: "picker-area-input"
+  }, [_c('input', {
+    staticClass: "date-input",
+    attrs: {
+      "placeholder": _vm.extraObj.placeholder ? _vm.extraObj.placeholder[0] : '起始日期',
+      "readonly": ""
+    },
+    domProps: {
+      "value": _vm.dateValue[0]
+    },
+    on: {
+      "click": _vm.openDialog
+    }
+  }), _vm._v(" "), _c('span', {
+    staticClass: "middle"
+  }, [_vm._v("—")]), _vm._v(" "), _c('input', {
+    staticClass: "date-input",
+    attrs: {
+      "placeholder": _vm.extraObj.placeholder ? _vm.extraObj.placeholder[1] : '结束日期',
+      "readonly": ""
+    },
+    domProps: {
+      "value": _vm.dateValue[1]
+    },
+    on: {
+      "click": _vm.openDialog
+    }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "picker-ok",
+    on: {
+      "click": _vm.submitDatePicker
+    }
+  }, [_vm._v("确定")])]), _vm._v(" "), _c('dateTimePicker', {
+    ref: "uiDatePicker",
+    attrs: {
+      "isShow": _vm.isShowDatePicker,
+      "dateRange": true,
+      "dateType": _vm.extraObj.dateType || 'date',
+      "isAllowAfter": _vm.extraObj.isAllowAfter || false,
+      "startDate": _vm.extraObj.dateRange ? _vm.extraObj.dateRange[0] : _vm.startDate,
+      "endDate": _vm.extraObj.dateRange ? _vm.extraObj.dateRange[1] : _vm.endDate
+    },
+    on: {
+      "confirm": _vm.onConfirmDate,
+      "close": _vm.onCloseDate
+    }
+  })], 1);
+};
+
+var __vue_staticRenderFns__ = [];
+export default {
+  _scopeId: 'data-v-3a0a6c5e',
+  render: __vue_render__,
+  staticRenderFns: __vue_staticRenderFns__,
+  components: {
+    dateTimePicker: dateTimePicker
+  },
+  props: {
+    idx: Number,
+    type: String,
+    extraObj: {
+      type: Object,
+      default: function _default() {}
+    }
+  },
+  data: function data() {
+    var date = new Date();
+    return {
+      hasScroll: true,
+      isShowDatePicker: false,
+      dateValue: ['', ''],
+      //自定义日期数据
+      startDate: [date.getFullYear() - 10, date.getMonth() + 1, date.getDate()].join('-'),
+      endDate: [date.getFullYear(), date.getMonth() + 1, date.getDate()].join('-')
+    };
+  },
+  directives: {
+    scrollFix: scrollFix
+  },
+  watch: {
+    extraObj: {
+      deep: true,
+      immediate: true,
+      handler: function handler(val) {
+        // if (val.customValue) {
+        this.dateValue = val.customValue || ['', '']; // }
+      }
+    }
+  },
+  mounted: function mounted() {},
+  methods: {
+    openDialog: function openDialog() {
+      var _this = this;
+
+      this.isShowDatePicker = true;
+      this.$nextTick(function () {
+        // if (this.dateValue[0] && this.dateValue[1]) {
+        _this.$refs.uiDatePicker.setPickerValues(_this.dateValue); // }
+
+      });
+    },
+    onConfirmDate: function onConfirmDate(value) {
+      // console.log('日历选择====', value);
+      this.dateValue = value;
+    },
+    onCloseDate: function onCloseDate() {
+      this.isShowDatePicker = false;
+    },
+    submitDatePicker: function submitDatePicker() {
+      if (!this.dateValue[0] && !this.dateValue[1]) return;
+      this.$emit('updateDate', this.dateValue, this.idx);
+    }
+  }
+};
